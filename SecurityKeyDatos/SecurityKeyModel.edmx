@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SecurityKeyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SecurityKeyModelStoreContainer">
+          <EntitySet Name="AREA" EntityType="SecurityKeyModel.Store.AREA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CARGO" EntityType="SecurityKeyModel.Store.CARGO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EQUIPO" EntityType="SecurityKeyModel.Store.EQUIPO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EQUIPOINGRESO" EntityType="SecurityKeyModel.Store.EQUIPOINGRESO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="INGRESO" EntityType="SecurityKeyModel.Store.INGRESO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MARCA" EntityType="SecurityKeyModel.Store.MARCA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PERSONA" EntityType="SecurityKeyModel.Store.PERSONA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ROL" EntityType="SecurityKeyModel.Store.ROL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TIPO" EntityType="SecurityKeyModel.Store.TIPO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USUARIO" EntityType="SecurityKeyModel.Store.USUARIO" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_EQUIPO_MARCA" Association="SecurityKeyModel.Store.FK_EQUIPO_MARCA">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOINGRESO_EQUIPO" Association="SecurityKeyModel.Store.FK_EQUIPOINGRESO_EQUIPO">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="EQUIPOINGRESO" EntitySet="EQUIPOINGRESO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOINGRESO_INGRESO" Association="SecurityKeyModel.Store.FK_EQUIPOINGRESO_INGRESO">
+            <End Role="INGRESO" EntitySet="INGRESO" />
+            <End Role="EQUIPOINGRESO" EntitySet="EQUIPOINGRESO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INGRESO_PERSONA" Association="SecurityKeyModel.Store.FK_INGRESO_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="INGRESO" EntitySet="INGRESO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONA_AREA" Association="SecurityKeyModel.Store.FK_PERSONA_AREA">
+            <End Role="AREA" EntitySet="AREA" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONA_TIPO" Association="SecurityKeyModel.Store.FK_PERSONA_TIPO">
+            <End Role="TIPO" EntitySet="TIPO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONA_USUARIO" Association="SecurityKeyModel.Store.FK_PERSONA_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_CARGO" Association="SecurityKeyModel.Store.FK_USUARIO_CARGO">
+            <End Role="CARGO" EntitySet="CARGO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_ROL" Association="SecurityKeyModel.Store.FK_USUARIO_ROL">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AREA">
+          <Key>
+            <PropertyRef Name="idAREA" />
+          </Key>
+          <Property Name="idAREA" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Ubicacion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Extension" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="idCARGO" />
+          </Key>
+          <Property Name="idCARGO" Type="int" Nullable="false" />
+          <Property Name="NombreCargo" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="EQUIPO">
+          <Key>
+            <PropertyRef Name="idEQUIPO" />
+          </Key>
+          <Property Name="idEQUIPO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Serial" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="idMARCA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EQUIPOINGRESO">
+          <Key>
+            <PropertyRef Name="idEQUIPOINGRESO" />
+          </Key>
+          <Property Name="idEQUIPOINGRESO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="FechaHoraSalida" Type="datetime" Nullable="false" />
+          <Property Name="idINGRESO" Type="int" Nullable="false" />
+          <Property Name="idEQUIPO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INGRESO">
+          <Key>
+            <PropertyRef Name="idINGRESO" />
+          </Key>
+          <Property Name="idINGRESO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FechaHoraIngreso" Type="datetime" Nullable="false" />
+          <Property Name="FechaHoraSalida" Type="datetime" Nullable="false" />
+          <Property Name="idAREA" Type="int" Nullable="false" />
+          <Property Name="idPERSONA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="idMARCA" />
+          </Key>
+          <Property Name="idMARCA" Type="int" Nullable="false" />
+          <Property Name="NombreMarca" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="idPERSONA" />
+          </Key>
+          <Property Name="idPERSONA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Apellido" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Documento" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="idTIPO" Type="int" Nullable="false" />
+          <Property Name="IdAREA" Type="int" Nullable="false" />
+          <Property Name="idUSUARIO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="idROL" />
+          </Key>
+          <Property Name="idROL" Type="int" Nullable="false" />
+          <Property Name="NombreRol" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="TIPO">
+          <Key>
+            <PropertyRef Name="idTIPO" />
+          </Key>
+          <Property Name="idTIPO" Type="int" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" Nullable="false" MaxLength="35" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="idUSUARIO" />
+          </Key>
+          <Property Name="idUSUARIO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="45" />
+          <Property Name="Correo" Type="nvarchar" Nullable="false" MaxLength="45" />
+          <Property Name="Direccion" Type="nvarchar" Nullable="false" MaxLength="45" />
+          <Property Name="Telefono" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="idCARGO" Type="int" Nullable="false" />
+          <Property Name="idROL" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EQUIPO_MARCA">
+          <End Role="MARCA" Type="SecurityKeyModel.Store.MARCA" Multiplicity="1" />
+          <End Role="EQUIPO" Type="SecurityKeyModel.Store.EQUIPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="idMARCA" />
+            </Principal>
+            <Dependent Role="EQUIPO">
+              <PropertyRef Name="idMARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOINGRESO_EQUIPO">
+          <End Role="EQUIPO" Type="SecurityKeyModel.Store.EQUIPO" Multiplicity="1" />
+          <End Role="EQUIPOINGRESO" Type="SecurityKeyModel.Store.EQUIPOINGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="idEQUIPO" />
+            </Principal>
+            <Dependent Role="EQUIPOINGRESO">
+              <PropertyRef Name="idEQUIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOINGRESO_INGRESO">
+          <End Role="INGRESO" Type="SecurityKeyModel.Store.INGRESO" Multiplicity="1" />
+          <End Role="EQUIPOINGRESO" Type="SecurityKeyModel.Store.EQUIPOINGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INGRESO">
+              <PropertyRef Name="idINGRESO" />
+            </Principal>
+            <Dependent Role="EQUIPOINGRESO">
+              <PropertyRef Name="idINGRESO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INGRESO_PERSONA">
+          <End Role="PERSONA" Type="SecurityKeyModel.Store.PERSONA" Multiplicity="1" />
+          <End Role="INGRESO" Type="SecurityKeyModel.Store.INGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="idPERSONA" />
+            </Principal>
+            <Dependent Role="INGRESO">
+              <PropertyRef Name="idPERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONA_AREA">
+          <End Role="AREA" Type="SecurityKeyModel.Store.AREA" Multiplicity="1" />
+          <End Role="PERSONA" Type="SecurityKeyModel.Store.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AREA">
+              <PropertyRef Name="idAREA" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="IdAREA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONA_TIPO">
+          <End Role="TIPO" Type="SecurityKeyModel.Store.TIPO" Multiplicity="1" />
+          <End Role="PERSONA" Type="SecurityKeyModel.Store.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO">
+              <PropertyRef Name="idTIPO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="idTIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONA_USUARIO">
+          <End Role="USUARIO" Type="SecurityKeyModel.Store.USUARIO" Multiplicity="1" />
+          <End Role="PERSONA" Type="SecurityKeyModel.Store.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="idUSUARIO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="idUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_CARGO">
+          <End Role="CARGO" Type="SecurityKeyModel.Store.CARGO" Multiplicity="1" />
+          <End Role="USUARIO" Type="SecurityKeyModel.Store.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="idCARGO" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="idCARGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_ROL">
+          <End Role="ROL" Type="SecurityKeyModel.Store.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="SecurityKeyModel.Store.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="idROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="idROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SecurityKeyModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SecurityKeyEntities2" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AREA" EntityType="SecurityKeyModel.AREA" />
+          <EntitySet Name="CARGO" EntityType="SecurityKeyModel.CARGO" />
+          <EntitySet Name="EQUIPO" EntityType="SecurityKeyModel.EQUIPO" />
+          <EntitySet Name="EQUIPOINGRESO" EntityType="SecurityKeyModel.EQUIPOINGRESO" />
+          <EntitySet Name="INGRESO" EntityType="SecurityKeyModel.INGRESO" />
+          <EntitySet Name="MARCA" EntityType="SecurityKeyModel.MARCA" />
+          <EntitySet Name="PERSONA" EntityType="SecurityKeyModel.PERSONA" />
+          <EntitySet Name="ROL" EntityType="SecurityKeyModel.ROL" />
+          <EntitySet Name="TIPO" EntityType="SecurityKeyModel.TIPO" />
+          <EntitySet Name="USUARIO" EntityType="SecurityKeyModel.USUARIO" />
+          <AssociationSet Name="FK_PERSONA_AREA" Association="SecurityKeyModel.FK_PERSONA_AREA">
+            <End Role="AREA" EntitySet="AREA" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_CARGO" Association="SecurityKeyModel.FK_USUARIO_CARGO">
+            <End Role="CARGO" EntitySet="CARGO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPO_MARCA" Association="SecurityKeyModel.FK_EQUIPO_MARCA">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOINGRESO_EQUIPO" Association="SecurityKeyModel.FK_EQUIPOINGRESO_EQUIPO">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="EQUIPOINGRESO" EntitySet="EQUIPOINGRESO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOINGRESO_INGRESO" Association="SecurityKeyModel.FK_EQUIPOINGRESO_INGRESO">
+            <End Role="INGRESO" EntitySet="INGRESO" />
+            <End Role="EQUIPOINGRESO" EntitySet="EQUIPOINGRESO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INGRESO_PERSONA" Association="SecurityKeyModel.FK_INGRESO_PERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="INGRESO" EntitySet="INGRESO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONA_TIPO" Association="SecurityKeyModel.FK_PERSONA_TIPO">
+            <End Role="TIPO" EntitySet="TIPO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PERSONA_USUARIO" Association="SecurityKeyModel.FK_PERSONA_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_ROL" Association="SecurityKeyModel.FK_USUARIO_ROL">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AREA">
+          <Key>
+            <PropertyRef Name="idAREA" />
+          </Key>
+          <Property Name="idAREA" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Ubicacion" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Extension" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="SecurityKeyModel.FK_PERSONA_AREA" FromRole="AREA" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="idCARGO" />
+          </Key>
+          <Property Name="idCARGO" Type="Int32" Nullable="false" />
+          <Property Name="NombreCargo" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="USUARIO" Relationship="SecurityKeyModel.FK_USUARIO_CARGO" FromRole="CARGO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="EQUIPO">
+          <Key>
+            <PropertyRef Name="idEQUIPO" />
+          </Key>
+          <Property Name="idEQUIPO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Serial" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="idMARCA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MARCA" Relationship="SecurityKeyModel.FK_EQUIPO_MARCA" FromRole="EQUIPO" ToRole="MARCA" />
+          <NavigationProperty Name="EQUIPOINGRESO" Relationship="SecurityKeyModel.FK_EQUIPOINGRESO_EQUIPO" FromRole="EQUIPO" ToRole="EQUIPOINGRESO" />
+        </EntityType>
+        <EntityType Name="EQUIPOINGRESO">
+          <Key>
+            <PropertyRef Name="idEQUIPOINGRESO" />
+          </Key>
+          <Property Name="idEQUIPOINGRESO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaHoraIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaHoraSalida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idINGRESO" Type="Int32" Nullable="false" />
+          <Property Name="idEQUIPO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EQUIPO" Relationship="SecurityKeyModel.FK_EQUIPOINGRESO_EQUIPO" FromRole="EQUIPOINGRESO" ToRole="EQUIPO" />
+          <NavigationProperty Name="INGRESO" Relationship="SecurityKeyModel.FK_EQUIPOINGRESO_INGRESO" FromRole="EQUIPOINGRESO" ToRole="INGRESO" />
+        </EntityType>
+        <EntityType Name="INGRESO">
+          <Key>
+            <PropertyRef Name="idINGRESO" />
+          </Key>
+          <Property Name="idINGRESO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaHoraIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaHoraSalida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idAREA" Type="Int32" Nullable="false" />
+          <Property Name="idPERSONA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EQUIPOINGRESO" Relationship="SecurityKeyModel.FK_EQUIPOINGRESO_INGRESO" FromRole="INGRESO" ToRole="EQUIPOINGRESO" />
+          <NavigationProperty Name="PERSONA" Relationship="SecurityKeyModel.FK_INGRESO_PERSONA" FromRole="INGRESO" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="idMARCA" />
+          </Key>
+          <Property Name="idMARCA" Type="Int32" Nullable="false" />
+          <Property Name="NombreMarca" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EQUIPO" Relationship="SecurityKeyModel.FK_EQUIPO_MARCA" FromRole="MARCA" ToRole="EQUIPO" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="idPERSONA" />
+          </Key>
+          <Property Name="idPERSONA" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Apellido" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Documento" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="idTIPO" Type="Int32" Nullable="false" />
+          <Property Name="IdAREA" Type="Int32" Nullable="false" />
+          <Property Name="idUSUARIO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AREA" Relationship="SecurityKeyModel.FK_PERSONA_AREA" FromRole="PERSONA" ToRole="AREA" />
+          <NavigationProperty Name="INGRESO" Relationship="SecurityKeyModel.FK_INGRESO_PERSONA" FromRole="PERSONA" ToRole="INGRESO" />
+          <NavigationProperty Name="TIPO" Relationship="SecurityKeyModel.FK_PERSONA_TIPO" FromRole="PERSONA" ToRole="TIPO" />
+          <NavigationProperty Name="USUARIO" Relationship="SecurityKeyModel.FK_PERSONA_USUARIO" FromRole="PERSONA" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="idROL" />
+          </Key>
+          <Property Name="idROL" Type="Int32" Nullable="false" />
+          <Property Name="NombreRol" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="USUARIO" Relationship="SecurityKeyModel.FK_USUARIO_ROL" FromRole="ROL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="TIPO">
+          <Key>
+            <PropertyRef Name="idTIPO" />
+          </Key>
+          <Property Name="idTIPO" Type="Int32" Nullable="false" />
+          <Property Name="NombreTipo" Type="String" Nullable="false" MaxLength="35" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PERSONA" Relationship="SecurityKeyModel.FK_PERSONA_TIPO" FromRole="TIPO" ToRole="PERSONA" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="idUSUARIO" />
+          </Key>
+          <Property Name="idUSUARIO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="45" Unicode="true" FixedLength="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="idCARGO" Type="Int32" Nullable="false" />
+          <Property Name="idROL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CARGO" Relationship="SecurityKeyModel.FK_USUARIO_CARGO" FromRole="USUARIO" ToRole="CARGO" />
+          <NavigationProperty Name="PERSONA" Relationship="SecurityKeyModel.FK_PERSONA_USUARIO" FromRole="USUARIO" ToRole="PERSONA" />
+          <NavigationProperty Name="ROL" Relationship="SecurityKeyModel.FK_USUARIO_ROL" FromRole="USUARIO" ToRole="ROL" />
+        </EntityType>
+        <Association Name="FK_PERSONA_AREA">
+          <End Role="AREA" Type="SecurityKeyModel.AREA" Multiplicity="1" />
+          <End Role="PERSONA" Type="SecurityKeyModel.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AREA">
+              <PropertyRef Name="idAREA" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="IdAREA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_CARGO">
+          <End Role="CARGO" Type="SecurityKeyModel.CARGO" Multiplicity="1" />
+          <End Role="USUARIO" Type="SecurityKeyModel.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="idCARGO" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="idCARGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPO_MARCA">
+          <End Role="MARCA" Type="SecurityKeyModel.MARCA" Multiplicity="1" />
+          <End Role="EQUIPO" Type="SecurityKeyModel.EQUIPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="idMARCA" />
+            </Principal>
+            <Dependent Role="EQUIPO">
+              <PropertyRef Name="idMARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOINGRESO_EQUIPO">
+          <End Role="EQUIPO" Type="SecurityKeyModel.EQUIPO" Multiplicity="1" />
+          <End Role="EQUIPOINGRESO" Type="SecurityKeyModel.EQUIPOINGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="idEQUIPO" />
+            </Principal>
+            <Dependent Role="EQUIPOINGRESO">
+              <PropertyRef Name="idEQUIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOINGRESO_INGRESO">
+          <End Role="INGRESO" Type="SecurityKeyModel.INGRESO" Multiplicity="1" />
+          <End Role="EQUIPOINGRESO" Type="SecurityKeyModel.EQUIPOINGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INGRESO">
+              <PropertyRef Name="idINGRESO" />
+            </Principal>
+            <Dependent Role="EQUIPOINGRESO">
+              <PropertyRef Name="idINGRESO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INGRESO_PERSONA">
+          <End Role="PERSONA" Type="SecurityKeyModel.PERSONA" Multiplicity="1" />
+          <End Role="INGRESO" Type="SecurityKeyModel.INGRESO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="idPERSONA" />
+            </Principal>
+            <Dependent Role="INGRESO">
+              <PropertyRef Name="idPERSONA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONA_TIPO">
+          <End Role="TIPO" Type="SecurityKeyModel.TIPO" Multiplicity="1" />
+          <End Role="PERSONA" Type="SecurityKeyModel.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO">
+              <PropertyRef Name="idTIPO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="idTIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PERSONA_USUARIO">
+          <End Role="USUARIO" Type="SecurityKeyModel.USUARIO" Multiplicity="1" />
+          <End Role="PERSONA" Type="SecurityKeyModel.PERSONA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="idUSUARIO" />
+            </Principal>
+            <Dependent Role="PERSONA">
+              <PropertyRef Name="idUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_ROL">
+          <End Role="ROL" Type="SecurityKeyModel.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="SecurityKeyModel.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="idROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="idROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SecurityKeyModelStoreContainer" CdmEntityContainer="SecurityKeyEntities2">
+          <EntitySetMapping Name="AREA">
+            <EntityTypeMapping TypeName="SecurityKeyModel.AREA">
+              <MappingFragment StoreEntitySet="AREA">
+                <ScalarProperty Name="idAREA" ColumnName="idAREA" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARGO">
+            <EntityTypeMapping TypeName="SecurityKeyModel.CARGO">
+              <MappingFragment StoreEntitySet="CARGO">
+                <ScalarProperty Name="idCARGO" ColumnName="idCARGO" />
+                <ScalarProperty Name="NombreCargo" ColumnName="NombreCargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EQUIPO">
+            <EntityTypeMapping TypeName="SecurityKeyModel.EQUIPO">
+              <MappingFragment StoreEntitySet="EQUIPO">
+                <ScalarProperty Name="idEQUIPO" ColumnName="idEQUIPO" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="idMARCA" ColumnName="idMARCA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EQUIPOINGRESO">
+            <EntityTypeMapping TypeName="SecurityKeyModel.EQUIPOINGRESO">
+              <MappingFragment StoreEntitySet="EQUIPOINGRESO">
+                <ScalarProperty Name="idEQUIPOINGRESO" ColumnName="idEQUIPOINGRESO" />
+                <ScalarProperty Name="FechaHoraIngreso" ColumnName="FechaHoraIngreso" />
+                <ScalarProperty Name="FechaHoraSalida" ColumnName="FechaHoraSalida" />
+                <ScalarProperty Name="idINGRESO" ColumnName="idINGRESO" />
+                <ScalarProperty Name="idEQUIPO" ColumnName="idEQUIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INGRESO">
+            <EntityTypeMapping TypeName="SecurityKeyModel.INGRESO">
+              <MappingFragment StoreEntitySet="INGRESO">
+                <ScalarProperty Name="idINGRESO" ColumnName="idINGRESO" />
+                <ScalarProperty Name="FechaHoraIngreso" ColumnName="FechaHoraIngreso" />
+                <ScalarProperty Name="FechaHoraSalida" ColumnName="FechaHoraSalida" />
+                <ScalarProperty Name="idAREA" ColumnName="idAREA" />
+                <ScalarProperty Name="idPERSONA" ColumnName="idPERSONA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MARCA">
+            <EntityTypeMapping TypeName="SecurityKeyModel.MARCA">
+              <MappingFragment StoreEntitySet="MARCA">
+                <ScalarProperty Name="idMARCA" ColumnName="idMARCA" />
+                <ScalarProperty Name="NombreMarca" ColumnName="NombreMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONA">
+            <EntityTypeMapping TypeName="SecurityKeyModel.PERSONA">
+              <MappingFragment StoreEntitySet="PERSONA">
+                <ScalarProperty Name="idPERSONA" ColumnName="idPERSONA" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="idTIPO" ColumnName="idTIPO" />
+                <ScalarProperty Name="IdAREA" ColumnName="IdAREA" />
+                <ScalarProperty Name="idUSUARIO" ColumnName="idUSUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="SecurityKeyModel.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="idROL" ColumnName="idROL" />
+                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO">
+            <EntityTypeMapping TypeName="SecurityKeyModel.TIPO">
+              <MappingFragment StoreEntitySet="TIPO">
+                <ScalarProperty Name="idTIPO" ColumnName="idTIPO" />
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="SecurityKeyModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="idUSUARIO" ColumnName="idUSUARIO" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="idCARGO" ColumnName="idCARGO" />
+                <ScalarProperty Name="idROL" ColumnName="idROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

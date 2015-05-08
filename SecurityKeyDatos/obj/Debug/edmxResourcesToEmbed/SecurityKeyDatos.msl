@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SecurityKeyModelStoreContainer" CdmEntityContainer="SecurityKeyEntities1">
+    <EntitySetMapping Name="AREA">
+      <EntityTypeMapping TypeName="SecurityKeyModel.AREA">
+        <MappingFragment StoreEntitySet="AREA">
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idAREA" ColumnName="idAREA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARGO">
+      <EntityTypeMapping TypeName="SecurityKeyModel.CARGO">
+        <MappingFragment StoreEntitySet="CARGO">
+          <ScalarProperty Name="NombreCargo" ColumnName="NombreCargo" />
+          <ScalarProperty Name="idCARGO" ColumnName="idCARGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EQUIPO">
+      <EntityTypeMapping TypeName="SecurityKeyModel.EQUIPO">
+        <MappingFragment StoreEntitySet="EQUIPO">
+          <ScalarProperty Name="idMARCA" ColumnName="idMARCA" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="idEQUIPO" ColumnName="idEQUIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EQUIPOINGRESO">
+      <EntityTypeMapping TypeName="SecurityKeyModel.EQUIPOINGRESO">
+        <MappingFragment StoreEntitySet="EQUIPOINGRESO">
+          <ScalarProperty Name="idEQUIPO" ColumnName="idEQUIPO" />
+          <ScalarProperty Name="idINGRESO" ColumnName="idINGRESO" />
+          <ScalarProperty Name="FechaHoraSalida" ColumnName="FechaHoraSalida" />
+          <ScalarProperty Name="FechaHoraIngreso" ColumnName="FechaHoraIngreso" />
+          <ScalarProperty Name="idEQUIPOINGRESO" ColumnName="idEQUIPOINGRESO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INGRESO">
+      <EntityTypeMapping TypeName="SecurityKeyModel.INGRESO">
+        <MappingFragment StoreEntitySet="INGRESO">
+          <ScalarProperty Name="idPERSONA" ColumnName="idPERSONA" />
+          <ScalarProperty Name="idAREA" ColumnName="idAREA" />
+          <ScalarProperty Name="FechaHoraSalida" ColumnName="FechaHoraSalida" />
+          <ScalarProperty Name="FechaHoraIngreso" ColumnName="FechaHoraIngreso" />
+          <ScalarProperty Name="idINGRESO" ColumnName="idINGRESO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARCA">
+      <EntityTypeMapping TypeName="SecurityKeyModel.MARCA">
+        <MappingFragment StoreEntitySet="MARCA">
+          <ScalarProperty Name="NombreMarca" ColumnName="NombreMarca" />
+          <ScalarProperty Name="idMARCA" ColumnName="idMARCA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONA">
+      <EntityTypeMapping TypeName="SecurityKeyModel.PERSONA">
+        <MappingFragment StoreEntitySet="PERSONA">
+          <ScalarProperty Name="idUSUARIO" ColumnName="idUSUARIO" />
+          <ScalarProperty Name="IdAREA" ColumnName="IdAREA" />
+          <ScalarProperty Name="idTIPO" ColumnName="idTIPO" />
+          <ScalarProperty Name="Documento" ColumnName="Documento" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idPERSONA" ColumnName="idPERSONA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="SecurityKeyModel.ROL">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+          <ScalarProperty Name="idROL" ColumnName="idROL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO">
+      <EntityTypeMapping TypeName="SecurityKeyModel.TIPO">
+        <MappingFragment StoreEntitySet="TIPO">
+          <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+          <ScalarProperty Name="idTIPO" ColumnName="idTIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="SecurityKeyModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="idROL" ColumnName="idROL" />
+          <ScalarProperty Name="idCARGO" ColumnName="idCARGO" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="idUSUARIO" ColumnName="idUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

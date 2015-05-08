@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityKey", "SecurityKey\SecurityKey.csproj", "{D8777639-D034-4413-93E7-A65CD9F95687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityKeyDatos", "SecurityKeyDatos\SecurityKeyDatos.csproj", "{610C9418-232E-4F59-A139-CB65C5BC8EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityKeyNegocios", "SecurityKeyNegocios\SecurityKeyNegocios.csproj", "{723A788B-FB75-46AB-B577-BC4C07BF83B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8777639-D034-4413-93E7-A65CD9F95687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8777639-D034-4413-93E7-A65CD9F95687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8777639-D034-4413-93E7-A65CD9F95687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8777639-D034-4413-93E7-A65CD9F95687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610C9418-232E-4F59-A139-CB65C5BC8EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610C9418-232E-4F59-A139-CB65C5BC8EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610C9418-232E-4F59-A139-CB65C5BC8EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610C9418-232E-4F59-A139-CB65C5BC8EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{723A788B-FB75-46AB-B577-BC4C07BF83B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723A788B-FB75-46AB-B577-BC4C07BF83B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723A788B-FB75-46AB-B577-BC4C07BF83B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723A788B-FB75-46AB-B577-BC4C07BF83B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

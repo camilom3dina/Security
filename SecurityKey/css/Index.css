@@ -1,0 +1,39 @@
+﻿body {
+    padding:0px;
+    margin:0px;
+    font-family:Verdana, Tahoma, sans-serif;
+    font-size:12px;
+    color:#333;
+}
+
+div#header {
+    height:70px;
+    background-image:url("/Imagenes/BannerNew.jpg");
+    color:#FFF;
+    position:fixed;
+    top:0px;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    div#header h1 {
+        margin:0px;
+        padding:0px;
+    }
+
+div#footer {
+    background-image:url("/Imagenes/BanerNewFooter.jpg");
+    color: #000;
+    padding: 15px 0px 0px 20px;
+    text-align:center;
+    position:relative;
+    bottom:0px;
+    width:100%;
+    background-size:cover;
+}
+
+div#contenido {
+    margin-top:auto;
+}
+

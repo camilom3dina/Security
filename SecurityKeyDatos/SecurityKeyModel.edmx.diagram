@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52476899d7344459993d0aa5e248b13d" Name="Diagrama1">
+        <EntityTypeShape EntityType="SecurityKeyModel.AREA" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.CARGO" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.EQUIPO" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.EQUIPOINGRESO" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.INGRESO" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.MARCA" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.PERSONA" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.ROL" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.TIPO" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="SecurityKeyModel.USUARIO" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="SecurityKeyModel.FK_PERSONA_AREA" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_USUARIO_CARGO" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_EQUIPO_MARCA" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_EQUIPOINGRESO_EQUIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_EQUIPOINGRESO_INGRESO" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_INGRESO_PERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_PERSONA_TIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_PERSONA_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="SecurityKeyModel.FK_USUARIO_ROL" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

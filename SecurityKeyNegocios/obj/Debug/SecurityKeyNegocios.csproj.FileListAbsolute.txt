@@ -1,0 +1,17 @@
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyNegocios.dll
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyNegocios.pdb
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\bin\Debug\EntityFramework.dll
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyDatos.dll
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyDatos.pdb
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\bin\Debug\EntityFramework.xml
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\obj\Debug\SecurityKeyNegocios.csprojResolveAssemblyReference.cache
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\obj\Debug\SecurityKeyNegocios.dll
+C:\Users\Darma\Documents\Visual Studio 2012\Projects\SecurityKey\SecurityKeyNegocios\obj\Debug\SecurityKeyNegocios.pdb
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyNegocios.dll
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyNegocios.pdb
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyDatos.dll
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\bin\Debug\SecurityKeyDatos.pdb
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\bin\Debug\EntityFramework.xml
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\obj\Debug\SecurityKeyNegocios.csprojResolveAssemblyReference.cache
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\obj\Debug\SecurityKeyNegocios.dll
+C:\Users\Alfonso\Downloads\OneDrive-2015-05-03\SecurityKey\SecurityKeyNegocios\obj\Debug\SecurityKeyNegocios.pdb
